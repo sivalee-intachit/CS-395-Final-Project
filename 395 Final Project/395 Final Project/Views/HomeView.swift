@@ -9,13 +9,14 @@ import SwiftUI
 
 struct HomeView: View {
     
-//    @State private var selectedTheme = 0
+    @State var showingTimerView = false
+    @State var showingToDoListView = false
     
     var body: some View {
         ZStack {
             Color(hex: "#B3B792")
-                //.opacity(0.5)
                 .ignoresSafeArea()
+            
             VStack {
                 HStack {
                     VStack {
@@ -31,12 +32,18 @@ struct HomeView: View {
             VStack {
                 Spacer()
                 HStack (spacing: 100){
-                    NavigationLink(destination: TimerView()) {
+                    Button (action: {
+                        self.showingTimerView.toggle()
+                    }) {
                         Image(systemName: "timer")
                     }
                     .frame(width: 48, height: 48)
                     .background(Color(hex: "#D9D9D9"))
                     .cornerRadius(100.0)
+                    .sheet(isPresented: $showingTimerView) {
+                        TimerView()
+                    }
+                    .tint(.gray)
                     
 //                    NavigationLink(destination: TimerView()) {
 //                        Image(systemName: "timer")
@@ -45,44 +52,25 @@ struct HomeView: View {
 //                    .background(.white)
 //                    .cornerRadius(100.0)
                     
-                    NavigationLink(destination: ToDoListView()) {
-                        Image(systemName: "list.bullet.clipboard")
+                    Button (action: {
+                        self.showingToDoListView.toggle()
+                    }) {
+                        Image(systemName: "timer")
                     }
                     .frame(width: 48, height: 48)
                     .background(Color(hex: "#D9D9D9"))
                     .cornerRadius(100.0)
+                    .sheet(isPresented: $showingToDoListView) {
+                        ToDoListView()
+                    }
+                    .tint(.gray)
                 }
                 .frame(width: 322, height: 85, alignment: .center)
                 .background(Color(hex: "#D9D9D9").opacity(0.5))
                 .cornerRadius(50.0)
                 .padding()
             }
-//            (selectedTheme == 0 ? Color.white : Color.black)
-//                .edgesIgnoringSafeArea(.all)
-            
-//            TabView {
-//                TimerView()
-//                    .tabItem {
-//                        Label("Pomodoro", systemImage: "timer")
-//                    }
-//                    
-//                
-//                ToDoListView()
-//                    .tabItem {
-//                        Label("To Do", systemImage: "list.bullet.clipboard")
-//                    }
-//            }
-            
-            //.padding()
-//            .onAppear() {
-//                UITabBar.appearance().backgroundColor = Color(hex: 0xd9d9d9, opacity: 0.5))
-//            }
-            //.frame(width: 322, alignment: .bottom)
-            //.background(.D9D9D980)
         }
-        //.background(Color(hex: "#B3B792"), ignoresSafeAreaEdges:.all)
-//        .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-        //.accentColor(selectedTheme == 0 ? .black : .white)
     }
 }
 
