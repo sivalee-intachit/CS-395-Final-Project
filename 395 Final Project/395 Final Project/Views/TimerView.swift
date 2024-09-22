@@ -9,7 +9,24 @@ import SwiftUI
 
 struct TimerView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ZStack {
+                Color.green
+                    .opacity(0.5)
+                    .ignoresSafeArea()
+                
+                VStack {
+                    Text("Timer View")
+                        .padding()
+                        .frame(maxHeight: .infinity)
+                    
+                    Rectangle()
+                        .fill(Color.clear)
+                        .frame(height: 10)
+                        .background(Color.green.opacity(0.2))
+                }
+            }
+        }
     }
 }
 
