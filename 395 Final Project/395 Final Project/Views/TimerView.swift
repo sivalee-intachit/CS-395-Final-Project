@@ -12,13 +12,18 @@ struct TimerView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        NavigationView {
+        VStack {
+            Spacer()
+            
             ZStack {
                 Color(hex: "#FDF8F3")
                     .ignoresSafeArea()
                 
                 VStack {
+                    //                Spacer()
+                    
                     Text("tasks remaining")
+                        .padding()
                     
                     //Spacer()
                     
@@ -45,8 +50,12 @@ struct TimerView: View {
                             .cornerRadius(100)
                     }
                     .frame(width:200, height: 90)
+                    
+                    Spacer()
                 }
             }
+            .frame(maxHeight: 650)
+            //.cornerRadius(10)
         }
     }
 }
