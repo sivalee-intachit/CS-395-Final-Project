@@ -29,20 +29,29 @@ struct HomeView: View {
                 .padding()
                 Spacer()
             }
+            
+            if (showingTimerView) {
+                TimerView()
+            }
+            if (showingToDoListView) {
+                ToDoListView()
+            }
+            
             VStack {
                 Spacer()
                 HStack (spacing: 100){
                     Button (action: {
                         self.showingTimerView.toggle()
+                        self.showingToDoListView = false
                     }) {
                         Image(systemName: "timer")
                     }
                     .frame(width: 48, height: 48)
                     .background(Color(hex: "#D9D9D9"))
                     .cornerRadius(100.0)
-                    .sheet(isPresented: $showingTimerView) {
-                        TimerView()
-                    }
+//                    .sheet(isPresented: $showingTimerView) {
+//                        TimerView()
+//                    }
                     .tint(.gray)
                     
 //                    NavigationLink(destination: TimerView()) {
@@ -53,6 +62,7 @@ struct HomeView: View {
 //                    .cornerRadius(100.0)
                     
                     Button (action: {
+                        self.showingTimerView = false
                         self.showingToDoListView.toggle()
                     }) {
                         Image(systemName: "timer")
@@ -60,9 +70,9 @@ struct HomeView: View {
                     .frame(width: 48, height: 48)
                     .background(Color(hex: "#D9D9D9"))
                     .cornerRadius(100.0)
-                    .sheet(isPresented: $showingToDoListView) {
-                        ToDoListView()
-                    }
+//                    .sheet(isPresented: $showingToDoListView) {
+//                        ToDoListView()
+//                    }
                     .tint(.gray)
                 }
                 .frame(width: 322, height: 85, alignment: .center)
