@@ -12,6 +12,7 @@ struct TimerView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
+        
         VStack {
             Spacer()
             
@@ -22,11 +23,14 @@ struct TimerView: View {
                 VStack {
                     //                Spacer()
                     
+                    // a count of the tasks remaining
                     Text("tasks remaining")
                         .padding()
                     
                     //Spacer()
                     
+                    //the timer count down and circle countdown
+                    //FIXME: currently temp icons
                     ZStack {
                         Text("timer")
                         Image(systemName: "circle")
@@ -38,6 +42,16 @@ struct TimerView: View {
                     
                     //                Spacer()
                     
+                    //buttons to switch between 25 and 5 minute timers
+                    HStack {
+                        Spacer()
+                        Text("focus")
+                        Spacer()
+                        Text("break")
+                        Spacer()
+                    }
+                    
+                    // buttons to pause/resume and reset timer
                     HStack (spacing: 60) {
                         Image(systemName: "play.fill")
                             .frame(width: 60, height: 60)
@@ -70,9 +84,9 @@ struct TimerView: View {
 //        cleanHexCode = cleanHexCode.replacingOccurrences(of: "#", with: "")
 //        print(cleanHexCode)
 //        var rgb: UInt64 = 0
-//        
+//
 //        Scanner(string: cleanHexCode).scanHexInt64(&rgb)
-//        
+//
 //        let redValue = Double((rgb >> 16) & 0xFF) / 255.0
 //        let greenValue = Double((rgb >> 8) & 0xFF) / 255.0
 //        let blueValue = Double(rgb & 0xFF) / 255.0

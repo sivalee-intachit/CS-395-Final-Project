@@ -8,20 +8,26 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+    // variable TimerView to show timer
+    var timerView = TimerView()
+    // variable ToDoListView to show list
+    var toDoListView = ToDoListView()
+    //booleans to show certain view
     @State var showingTimerView = false
     @State var showingToDoListView = false
     
     var body: some View {
+        //want everything to be layered on top of each other
         ZStack {
             Color(hex: "#B3B792")
-                .ignoresSafeArea()
+                .ignoresSafeArea() // avoids borders around edge
             
+            // simple Vstack for basic elements on home screen
             VStack {
                 HStack {
                     VStack {
                         Text("Today")
-                        Text("Date")
+                        Text(Date(), style: .date)
                     }
                     Spacer()
                     Text("Icon")
@@ -30,17 +36,20 @@ struct HomeView: View {
                 Spacer()
             }
             
+            //if boolean to show views
             if (showingTimerView) {
-                TimerView()
+                timerView
             }
             if (showingToDoListView) {
-                ToDoListView()
+                toDoListView
             }
             
+            // navigation buttons
             VStack {
                 Spacer()
                 HStack (spacing: 100){
                     Button (action: {
+                        //only showing one view at a time
                         self.showingTimerView.toggle()
                         self.showingToDoListView = false
                     }) {
@@ -81,6 +90,9 @@ struct HomeView: View {
                 .padding()
             }
         }
+//        .sheet(isPresented: $showingTimerView) {
+//            timerView
+//        }
     }
 }
 
@@ -88,6 +100,9 @@ struct HomeView: View {
     HomeView()
 }
 
+// Color extension to be able to use hex codes
+// does NOT need to be replicated in other files
+// to use: Color(hex: #FFFFFF)
 extension Color {
     init(hex: String) {
         var cleanHexCode = hex.trimmingCharacters(in: .whitespacesAndNewlines)
