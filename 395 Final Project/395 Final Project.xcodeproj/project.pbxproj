@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,6 +27,10 @@
 		CA362A762C9FAD13002A1EB5 /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
 		CA362A782C9FAE10002A1EB5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		74241F712CC610920040888F /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		CA362A1E2C98C50D002A1EB5 /* Frameworks */ = {
@@ -64,6 +68,8 @@
 				CA362A282C98C50F002A1EB5 /* Assets.xcassets */,
 				CA362A2A2C98C50F002A1EB5 /* _95_Final_Project.entitlements */,
 				CA362A2B2C98C50F002A1EB5 /* Preview Content */,
+				CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */,
+				74241F712CC610920040888F /* Extensions */,
 			);
 			path = "395 Final Project";
 			sourceTree = "<group>";
@@ -90,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				CA362A262C98C50D002A1EB5 /* ContentView.swift */,
-				CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -116,6 +121,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				74241F712CC610920040888F /* Extensions */,
 			);
 			name = "395 Final Project";
 			productName = "395 Final Project";
