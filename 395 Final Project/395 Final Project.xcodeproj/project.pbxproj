@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74E5638B2CC69ED700F90378 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E5638A2CC69ED500F90378 /* Task.swift */; };
+		74E5638D2CC69F0700F90378 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E5638C2CC69F0500F90378 /* TaskRow.swift */; };
+		74E563902CC69F7200F90378 /* TaskComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E5638F2CC69F6E00F90378 /* TaskComposeView.swift */; };
 		CA362A252C98C50D002A1EB5 /* _95_Final_ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */; };
 		CA362A272C98C50D002A1EB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A262C98C50D002A1EB5 /* ContentView.swift */; };
 		CA362A292C98C50F002A1EB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA362A282C98C50F002A1EB5 /* Assets.xcassets */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74E5638A2CC69ED500F90378 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		74E5638C2CC69F0500F90378 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
+		74E5638F2CC69F6E00F90378 /* TaskComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskComposeView.swift; sourceTree = "<group>"; };
 		CA362A212C98C50D002A1EB5 /* 395 Final Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "395 Final Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _95_Final_ProjectApp.swift; sourceTree = "<group>"; };
 		CA362A262C98C50D002A1EB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,8 +74,8 @@
 				CA362A282C98C50F002A1EB5 /* Assets.xcassets */,
 				CA362A2A2C98C50F002A1EB5 /* _95_Final_Project.entitlements */,
 				CA362A2B2C98C50F002A1EB5 /* Preview Content */,
-				CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */,
 				74241F712CC610920040888F /* Extensions */,
+				CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */,
 			);
 			path = "395 Final Project";
 			sourceTree = "<group>";
@@ -85,6 +91,8 @@
 		CA362A712C9FABF9002A1EB5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				74E5638F2CC69F6E00F90378 /* TaskComposeView.swift */,
+				74E5638C2CC69F0500F90378 /* TaskRow.swift */,
 				CA362A742C9FACFF002A1EB5 /* TimerView.swift */,
 				CA362A762C9FAD13002A1EB5 /* ToDoListView.swift */,
 				CA362A782C9FAE10002A1EB5 /* HomeView.swift */,
@@ -95,6 +103,7 @@
 		CA362A722C9FAC24002A1EB5 /* Modals */ = {
 			isa = PBXGroup;
 			children = (
+				74E5638A2CC69ED500F90378 /* Task.swift */,
 				CA362A262C98C50D002A1EB5 /* ContentView.swift */,
 			);
 			path = Modals;
@@ -182,8 +191,11 @@
 			files = (
 				CA362A752C9FACFF002A1EB5 /* TimerView.swift in Sources */,
 				CA362A272C98C50D002A1EB5 /* ContentView.swift in Sources */,
+				74E563902CC69F7200F90378 /* TaskComposeView.swift in Sources */,
 				CA362A772C9FAD13002A1EB5 /* ToDoListView.swift in Sources */,
+				74E5638D2CC69F0700F90378 /* TaskRow.swift in Sources */,
 				CA362A792C9FAE10002A1EB5 /* HomeView.swift in Sources */,
+				74E5638B2CC69ED700F90378 /* Task.swift in Sources */,
 				CA362A252C98C50D002A1EB5 /* _95_Final_ProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
