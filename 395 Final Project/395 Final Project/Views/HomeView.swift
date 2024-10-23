@@ -74,7 +74,7 @@ struct HomeView: View {
                         self.showingTimerView = false
                         self.showingToDoListView.toggle()
                     }) {
-                        Image(systemName: "timer")
+                        Image(systemName: "list.clipboard")
                     }
                     .frame(width: 48, height: 48)
                     .background(Color(hex: "#D9D9D9"))

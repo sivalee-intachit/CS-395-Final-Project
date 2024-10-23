@@ -32,17 +32,21 @@ struct TimerView: View {
                         // a count of the tasks remaining
                         HStack {
                             Text("\(Task.getTasks().count) Tasks Remaining")
-                                .padding()
                         }
-                        .frame()
+                        .padding()
+                        .frame(width: 200, height: 36)
+                        .font(.system(size:18))
+                        .foregroundStyle(Color(hex: "6D5F60"))
+                        .background(Color(hex: "F4DAB9"))
+                        .clipShape(Capsule())
                         
                         Spacer()
                     }
+                    .padding(25)
                     
                     //Spacer()
                     
                     //the timer count down and circle countdown
-                    //FIXME: currently temp icons
                     ZStack {
                         //timer outline
                         Circle()
@@ -82,7 +86,7 @@ struct TimerView: View {
                             }
                             .padding(.vertical)
                             .frame(width: 100, height: 40)
-                            .background(Color(hex: "B3B792"))
+                            .background(Color(hex: "#D9D9D9"))
                             .foregroundStyle(Color(hex: "#FDF8F3"))
                             .font(.system(size:15))
                             .clipShape(Capsule())
@@ -103,7 +107,7 @@ struct TimerView: View {
                             }
                             .padding(.vertical)
                             .frame(width: 100, height: 40)
-                            .background(Color(hex: "B3B792"))
+                            .background(Color(hex: "#D9D9D9"))
                             .foregroundStyle(Color(hex: "#FDF8F3"))
                             .font(.system(size:15))
                             .clipShape(Capsule())
