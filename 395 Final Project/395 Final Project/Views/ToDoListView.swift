@@ -11,6 +11,7 @@ import SwiftUI
 
 struct ToDoListView: View {
     @Environment(\.dismiss) var dismiss
+    // Step 1: Create private mutable variables for tasks, showingComposeView, taskToEdit
     @State private var showingComposeView: Bool = false
     @State private var taskToEdit : Task?
     @State private var tasks : [Task] = []
