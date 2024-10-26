@@ -11,12 +11,13 @@
 		74E5638D2CC69F0700F90378 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E5638C2CC69F0500F90378 /* TaskRow.swift */; };
 		74E563902CC69F7200F90378 /* TaskComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E5638F2CC69F6E00F90378 /* TaskComposeView.swift */; };
 		CA362A252C98C50D002A1EB5 /* _95_Final_ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */; };
-		CA362A272C98C50D002A1EB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A262C98C50D002A1EB5 /* ContentView.swift */; };
 		CA362A292C98C50F002A1EB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA362A282C98C50F002A1EB5 /* Assets.xcassets */; };
 		CA362A2D2C98C50F002A1EB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA362A2C2C98C50F002A1EB5 /* Preview Assets.xcassets */; };
 		CA362A752C9FACFF002A1EB5 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A742C9FACFF002A1EB5 /* TimerView.swift */; };
 		CA362A772C9FAD13002A1EB5 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A762C9FAD13002A1EB5 /* ToDoListView.swift */; };
 		CA362A792C9FAE10002A1EB5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A782C9FAE10002A1EB5 /* HomeView.swift */; };
+		CA723BD22CCD8F1B006FCA4B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA723BD12CCD8F16006FCA4B /* CalendarView.swift */; };
+		CA723BD42CCD8F43006FCA4B /* TimerModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA723BD32CCD8F40006FCA4B /* TimerModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,13 +27,14 @@
 		74E5638F2CC69F6E00F90378 /* TaskComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskComposeView.swift; sourceTree = "<group>"; };
 		CA362A212C98C50D002A1EB5 /* 395 Final Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "395 Final Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _95_Final_ProjectApp.swift; sourceTree = "<group>"; };
-		CA362A262C98C50D002A1EB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CA362A282C98C50F002A1EB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA362A2A2C98C50F002A1EB5 /* _95_Final_Project.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = _95_Final_Project.entitlements; sourceTree = "<group>"; };
 		CA362A2C2C98C50F002A1EB5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CA362A742C9FACFF002A1EB5 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		CA362A762C9FAD13002A1EB5 /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
 		CA362A782C9FAE10002A1EB5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		CA723BD12CCD8F16006FCA4B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		CA723BD32CCD8F40006FCA4B /* TimerModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -70,8 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				7478F7792CC87D0B00407A91 /* -95-Final-Project-Info.plist */,
-				7448D1BE2CCD8673003B48B2 /* Fonts */,
-				CA362A732C9FAC42002A1EB5 /* ViewModals */,
 				CA362A722C9FAC24002A1EB5 /* Modals */,
 				CA362A712C9FABF9002A1EB5 /* Views */,
 				CA362A282C98C50F002A1EB5 /* Assets.xcassets */,
@@ -79,7 +79,6 @@
 				CA362A2B2C98C50F002A1EB5 /* Preview Content */,
 				74241F712CC610920040888F /* Extensions */,
 				CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */,
-				7478F7762CC87CE300407A91 /* Fonts */,
 			);
 			path = "395 Final Project";
 			sourceTree = "<group>";
@@ -95,6 +94,7 @@
 		CA362A712C9FABF9002A1EB5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CA723BD12CCD8F16006FCA4B /* CalendarView.swift */,
 				74E5638F2CC69F6E00F90378 /* TaskComposeView.swift */,
 				74E5638C2CC69F0500F90378 /* TaskRow.swift */,
 				CA362A742C9FACFF002A1EB5 /* TimerView.swift */,
@@ -107,8 +107,8 @@
 		CA362A722C9FAC24002A1EB5 /* Modals */ = {
 			isa = PBXGroup;
 			children = (
+				CA723BD32CCD8F40006FCA4B /* TimerModal.swift */,
 				74E5638A2CC69ED500F90378 /* Task.swift */,
-				CA362A262C98C50D002A1EB5 /* ContentView.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -130,8 +130,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				74241F712CC610920040888F /* Extensions */,
-				7448D1BE2CCD8673003B48B2 /* Fonts */,
-				7478F7762CC87CE300407A91 /* Fonts */,
 			);
 			name = "395 Final Project";
 			productName = "395 Final Project";
@@ -188,10 +186,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA723BD42CCD8F43006FCA4B /* TimerModal.swift in Sources */,
 				CA362A752C9FACFF002A1EB5 /* TimerView.swift in Sources */,
-				CA362A272C98C50D002A1EB5 /* ContentView.swift in Sources */,
 				74E563902CC69F7200F90378 /* TaskComposeView.swift in Sources */,
 				CA362A772C9FAD13002A1EB5 /* ToDoListView.swift in Sources */,
+				CA723BD22CCD8F1B006FCA4B /* CalendarView.swift in Sources */,
 				74E5638D2CC69F0700F90378 /* TaskRow.swift in Sources */,
 				CA362A792C9FAE10002A1EB5 /* HomeView.swift in Sources */,
 				74E5638B2CC69ED700F90378 /* Task.swift in Sources */,
