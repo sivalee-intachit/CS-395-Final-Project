@@ -23,16 +23,20 @@ struct TaskRow: View {
                 }
                 onComplete(updatedTask)
             }) {
-                Image(systemName: task.isComplete ? "checkmark.circle.fill" : "circle")
-                    .foregroundColor(task.isComplete ? .blue : .secondary)
+                Image(systemName: task.isComplete ? "app.fill" : "app")
+                    .foregroundColor(Color(hex: "#E0D9D5"))
+                    .font(.system(size: 25))
+                    .padding(.trailing, 8)
+                    
             }
             VStack(alignment: .leading) {
                 Text(task.title)
-                    .foregroundColor(task.isComplete ? .secondary : .primary)
+                    .foregroundColor(task.isComplete ? .secondary : Color(hex: "#6D5F60"))
+                    .font(.poppinsMedium)
                 if let note = task.note, !note.isEmpty {
                     Text(note)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+                        .font(.poppinsRegular)
+                        .foregroundColor(Color(hex: "#948A8B"))
                 }
             }
         }
