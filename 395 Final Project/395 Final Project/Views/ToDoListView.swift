@@ -10,74 +10,79 @@ import SwiftUI
 import SwiftUI
 
 struct ToDoListView: View {
-    // Step 1: Create private mutable variables for tasks, showingComposeView, taskToEdit
     @State private var showingComposeView: Bool = false
     @State private var taskToEdit : Task?
     @State private var tasks : [Task] = []
-    // Hint: We will use these in our UI
-    // tasks (array)
-    // showingComposeView (should start as false, will be used to toggle our TaskComposeView)
-    // taskToEdit (This may not exist)
     var body: some View {
-        // Step 2: We will be navigating between this view and others, what struct should we surround everything in?
-        NavigationView {
-            // Step 3: Create a List to display tasks
-            List {
-                // Step 4: Inside our List we want to iterate over each task
-                // a) Each task should be displayed using TaskRow
-                // b) onComplete is a closure, call updateTask with the task passed into this closure
-                // c) Set the shape to a rectangle -> .contentShape(Rectangle())
-                // Add a tap gesture to set taskToEdit and show the compose view
-                ForEach(tasks) { task in
-                    TaskRow(task: task, onComplete: { updatedTask in
-                        updateTask(updatedTask)
-                    })
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        taskToEdit = task
-                        showingComposeView.toggle()
+        VStack {
+            Spacer()
+            
+            ZStack {
+                Color(hex: "#FDF8F3")
+                    .ignoresSafeArea()
+                NavigationView {
+                    ZStack {
+                        Color(hex: "#FDF8F3")
+                            .ignoresSafeArea()
+                        List {
+                            ForEach(tasks) { task in
+                                TaskRow(task: task, onComplete: { updatedTask in
+                                    updateTask(updatedTask)
+                                })
+                                .contentShape(Rectangle())
+                                .onTapGesture {
+                                    taskToEdit = task
+                                    showingComposeView.toggle()
+                                }
+                                .listRowBackground(Color.clear)
+                                .listRowSeparator(.hidden)
+                                .listRowInsets(EdgeInsets(top: 0, leading: 50, bottom: 15, trailing: 50))
+                            }
+                            .onDelete(perform: deleteTasks)
+                        }
+                        .listStyle(PlainListStyle())
+                        .frame(height: 400)
+                        .padding(.bottom, 200)
+                        
+                        VStack {
+                            Spacer()
+                            HStack {
+                                Spacer()
+                                Button(action: {
+                                    taskToEdit = nil
+                                    showingComposeView.toggle()
+                                    }
+                                ) {
+                                    Image(systemName: "plus.circle.fill").foregroundColor(Color(hex: "#F4DAB9"))
+                                    .font(.system(size: 50))
+                                    .padding()
+                                }
+                                .frame(width: 60, height: 50)
+                                .sheet(isPresented: $showingComposeView, onDismiss: {
+                                    taskToEdit = nil
+                                }) {
+                                    TaskComposeView(taskToEdit: taskToEdit, onSave: {updatedTask in
+                                        updateTask(updatedTask)
+                                        taskToEdit = nil
+                                    })
+                                }
+                            }
+                        }
+                        .padding(.trailing, 50)
+                        .padding(.bottom, 180)
                     }
+                    .onAppear(perform: refreshTasks)
                 }
-                // Step 5: Add the onDelete modifier to delete tasks (this should be attached to the struct we use to iterate (NOT LIST)
-                // Hint: use the "perform" property of the onDelete modifier
-                .onDelete(perform: deleteTasks)
             }
-            //Step 6: style the list we display our tasks with using a modifier
-            // Hint: .listStyle(PlainListStyle())
-            .listStyle(PlainListStyle())
-            
-            // Step 6: Set the navigation title to "Tasks"
-            .navigationTitle("Tasks")
-            
-            // Step 7: Add a navigation bar item (trailing) to create a new task (button with image inside)
-            // a) When pressing the button we want to open our TaskComposeView and ensure the view will display as if we are making a "New Task". What value should we set taskToEdit to ensure TaskComposeView will display "New Task"?
-            .navigationBarItems(trailing:
-                Button(action: {
-                taskToEdit = nil
-                showingComposeView.toggle()
-            }) {
-                Image(systemName: "plus")
-            }
-            )
-            
-            // Step 8: Add a sheet to present the TaskComposeView. When we dismiss this sheet it should set our taskToEdit to nil.
-            // Hint: sheet will take two parameters/properties, the second one is an onDismiss closure.
-            // Ex:  .sheet(p1: v1, onDismiss: {
-            //          do stuff when on dismiss
-            //      })
-            // a) the onSave is a closure, call updateTask with the task passed into this closure
-            // b) set taskToEdit to nil
-            .sheet(isPresented: $showingComposeView, onDismiss: {
-                taskToEdit = nil
-            }) {
-                TaskComposeView(taskToEdit: taskToEdit, onSave: {updatedTask in
-                    updateTask(updatedTask)
-                    taskToEdit = nil
-                })
-            }
+            .frame(maxHeight: 750)
+            .cornerRadius(50)
         }
-        // Step 9: Add the onAppear modifier to our entire UI. When the view appears it should perform refreshTasks
-        .onAppear(perform: refreshTasks)
+        .offset(y: 80)
+
+            
+            
+            
+        
     }
 
 
