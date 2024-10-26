@@ -36,12 +36,13 @@ struct ToDoListView: View {
                                 }
                                 .listRowBackground(Color.clear)
                                 .listRowSeparator(.hidden)
-                                .listRowInsets(EdgeInsets(top: 0, leading: 50, bottom: 15, trailing: 0))
+                                .listRowInsets(EdgeInsets(top: 0, leading: 50, bottom: 15, trailing: 50))
                             }
                             .onDelete(perform: deleteTasks)
                         }
                         .listStyle(PlainListStyle())
-                        .padding(.top, 50)
+                        .frame(height: 400)
+                        .padding(.bottom, 200)
                         
                         VStack {
                             Spacer()
@@ -69,25 +70,6 @@ struct ToDoListView: View {
                         }
                         .padding(.trailing, 50)
                         .padding(.bottom, 180)
-//                        .navigationBarItems(trailing:
-//                            Button(action: {
-//                                taskToEdit = nil
-//                                showingComposeView.toggle()
-//                                }
-//                            ) {
-//                                Image(systemName: "plus.circle.fill").foregroundColor(Color(hex: "#F4DAB9"))
-//                                .padding()
-//                            }
-//                            .frame(width: 60, height: 50)
-//                        )
-//                        .sheet(isPresented: $showingComposeView, onDismiss: {
-//                            taskToEdit = nil
-//                        }) {
-//                            TaskComposeView(taskToEdit: taskToEdit, onSave: {updatedTask in
-//                                updateTask(updatedTask)
-//                                taskToEdit = nil
-//                            })
-//                        }
                     }
                     .onAppear(perform: refreshTasks)
                 }
