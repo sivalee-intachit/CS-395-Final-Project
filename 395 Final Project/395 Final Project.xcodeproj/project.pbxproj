@@ -20,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7478F7792CC87D0B00407A91 /* -95-Final-Project-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-95-Final-Project-Info.plist"; sourceTree = SOURCE_ROOT; };
 		74E5638A2CC69ED500F90378 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		74E5638C2CC69F0500F90378 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		74E5638F2CC69F6E00F90378 /* TaskComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskComposeView.swift; sourceTree = "<group>"; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		74241F712CC610920040888F /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
+		7478F7762CC87CE300407A91 /* Fonts */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Fonts; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		CA362A232C98C50D002A1EB5 /* 395 Final Project */ = {
 			isa = PBXGroup;
 			children = (
+				7478F7792CC87D0B00407A91 /* -95-Final-Project-Info.plist */,
 				CA362A732C9FAC42002A1EB5 /* ViewModals */,
 				CA362A722C9FAC24002A1EB5 /* Modals */,
 				CA362A712C9FABF9002A1EB5 /* Views */,
@@ -76,6 +79,7 @@
 				CA362A2B2C98C50F002A1EB5 /* Preview Content */,
 				74241F712CC610920040888F /* Extensions */,
 				CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */,
+				7478F7762CC87CE300407A91 /* Fonts */,
 			);
 			path = "395 Final Project";
 			sourceTree = "<group>";
@@ -133,6 +137,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				74241F712CC610920040888F /* Extensions */,
+				7478F7762CC87CE300407A91 /* Fonts */,
 			);
 			name = "395 Final Project";
 			productName = "395 Final Project";
@@ -328,6 +333,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"395 Final Project/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-95-Final-Project-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -364,6 +370,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"395 Final Project/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "-95-Final-Project-Info.plist";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
