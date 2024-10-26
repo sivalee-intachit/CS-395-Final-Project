@@ -11,34 +11,45 @@
 		74E5638D2CC69F0700F90378 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E5638C2CC69F0500F90378 /* TaskRow.swift */; };
 		74E563902CC69F7200F90378 /* TaskComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E5638F2CC69F6E00F90378 /* TaskComposeView.swift */; };
 		CA362A252C98C50D002A1EB5 /* _95_Final_ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */; };
+		CA362A272C98C50D002A1EB5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A262C98C50D002A1EB5 /* ContentView.swift */; };
 		CA362A292C98C50F002A1EB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA362A282C98C50F002A1EB5 /* Assets.xcassets */; };
 		CA362A2D2C98C50F002A1EB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA362A2C2C98C50F002A1EB5 /* Preview Assets.xcassets */; };
 		CA362A752C9FACFF002A1EB5 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A742C9FACFF002A1EB5 /* TimerView.swift */; };
 		CA362A772C9FAD13002A1EB5 /* ToDoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A762C9FAD13002A1EB5 /* ToDoListView.swift */; };
 		CA362A792C9FAE10002A1EB5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A782C9FAE10002A1EB5 /* HomeView.swift */; };
-		CA723B7E2CCA9C62006FCA4B /* CalenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA723B7D2CCA9C4F006FCA4B /* CalenderView.swift */; };
-		CA723B892CCCB76D006FCA4B /* TimerModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA723B882CCCB765006FCA4B /* TimerModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7478F7792CC87D0B00407A91 /* -95-Final-Project-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-95-Final-Project-Info.plist"; sourceTree = SOURCE_ROOT; };
 		74E5638A2CC69ED500F90378 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		74E5638C2CC69F0500F90378 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		74E5638F2CC69F6E00F90378 /* TaskComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskComposeView.swift; sourceTree = "<group>"; };
 		CA362A212C98C50D002A1EB5 /* 395 Final Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "395 Final Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _95_Final_ProjectApp.swift; sourceTree = "<group>"; };
+		CA362A262C98C50D002A1EB5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CA362A282C98C50F002A1EB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA362A2A2C98C50F002A1EB5 /* _95_Final_Project.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = _95_Final_Project.entitlements; sourceTree = "<group>"; };
 		CA362A2C2C98C50F002A1EB5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CA362A742C9FACFF002A1EB5 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		CA362A762C9FAD13002A1EB5 /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
 		CA362A782C9FAE10002A1EB5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		CA723B7D2CCA9C4F006FCA4B /* CalenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderView.swift; sourceTree = "<group>"; };
-		CA723B852CCCAE8A006FCA4B /* -95-Final-Project-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-95-Final-Project-Info.plist"; sourceTree = SOURCE_ROOT; };
-		CA723B882CCCB765006FCA4B /* TimerModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7448D1BD2CCD850E003B48B2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Poppins-Black.ttf",
+				"Poppins-Medium.ttf",
+				"Poppins-Regular.ttf",
+			);
+			target = CA362A202C98C50D002A1EB5 /* 395 Final Project */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		74241F712CC610920040888F /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
+		7448D1B62CCD8505003B48B2 /* Fonts */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (7448D1BD2CCD850E003B48B2 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Fonts; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +68,7 @@
 			children = (
 				CA362A232C98C50D002A1EB5 /* 395 Final Project */,
 				CA362A222C98C50D002A1EB5 /* Products */,
+				7448D1B62CCD8505003B48B2 /* Fonts */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,8 +83,7 @@
 		CA362A232C98C50D002A1EB5 /* 395 Final Project */ = {
 			isa = PBXGroup;
 			children = (
-				CA723B852CCCAE8A006FCA4B /* -95-Final-Project-Info.plist */,
-				CA362A732C9FAC42002A1EB5 /* ViewModals */,
+				7478F7792CC87D0B00407A91 /* -95-Final-Project-Info.plist */,
 				CA362A722C9FAC24002A1EB5 /* Modals */,
 				CA362A712C9FABF9002A1EB5 /* Views */,
 				CA362A282C98C50F002A1EB5 /* Assets.xcassets */,
@@ -95,7 +106,6 @@
 		CA362A712C9FABF9002A1EB5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CA723B7D2CCA9C4F006FCA4B /* CalenderView.swift */,
 				74E5638F2CC69F6E00F90378 /* TaskComposeView.swift */,
 				74E5638C2CC69F0500F90378 /* TaskRow.swift */,
 				CA362A742C9FACFF002A1EB5 /* TimerView.swift */,
@@ -108,17 +118,10 @@
 		CA362A722C9FAC24002A1EB5 /* Modals */ = {
 			isa = PBXGroup;
 			children = (
-				CA723B882CCCB765006FCA4B /* TimerModal.swift */,
 				74E5638A2CC69ED500F90378 /* Task.swift */,
+				CA362A262C98C50D002A1EB5 /* ContentView.swift */,
 			);
 			path = Modals;
-			sourceTree = "<group>";
-		};
-		CA362A732C9FAC42002A1EB5 /* ViewModals */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,13 +198,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA362A752C9FACFF002A1EB5 /* TimerView.swift in Sources */,
+				CA362A272C98C50D002A1EB5 /* ContentView.swift in Sources */,
 				74E563902CC69F7200F90378 /* TaskComposeView.swift in Sources */,
 				CA362A772C9FAD13002A1EB5 /* ToDoListView.swift in Sources */,
-				CA723B892CCCB76D006FCA4B /* TimerModal.swift in Sources */,
 				74E5638D2CC69F0700F90378 /* TaskRow.swift in Sources */,
 				CA362A792C9FAE10002A1EB5 /* HomeView.swift in Sources */,
 				74E5638B2CC69ED700F90378 /* Task.swift in Sources */,
-				CA723B7E2CCA9C62006FCA4B /* CalenderView.swift in Sources */,
 				CA362A252C98C50D002A1EB5 /* _95_Final_ProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,7 +331,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "395 Final Project/_95_Final_Project.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"395 Final Project/Preview Content\"";
@@ -354,7 +355,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.-95-Final-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -367,7 +368,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "395 Final Project/_95_Final_Project.entitlements";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"395 Final Project/Preview Content\"";
@@ -392,7 +392,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.-95-Final-Project";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
