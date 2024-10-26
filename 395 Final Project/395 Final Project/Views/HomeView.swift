@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct HomeView: View {
     // variable TimerView to show timer
@@ -36,6 +37,8 @@ struct HomeView: View {
                 Spacer()
             }
             
+            CalenderView()
+            
             //if boolean to show views
             if (showingTimerView) {
                 timerView
@@ -51,6 +54,7 @@ struct HomeView: View {
                     Button (action: {
                         //only showing one view at a time
                         self.showingTimerView.toggle()
+//                        self.toDoListView.dismiss()
                         self.showingToDoListView = false
                     }) {
                         Image(systemName: "timer")
@@ -72,6 +76,7 @@ struct HomeView: View {
                     
                     Button (action: {
                         self.showingTimerView = false
+//                        self.timerView.dismiss()
                         self.showingToDoListView.toggle()
                     }) {
                         Image(systemName: "list.clipboard")

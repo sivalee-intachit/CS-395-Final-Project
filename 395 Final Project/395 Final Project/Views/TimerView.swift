@@ -6,15 +6,17 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct TimerView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var timeRemaining: TimeInterval = 1500
+    @State private var timeRemaining: TimeInterval = 15
     @State private var isFocused: Bool = true
     @State private var isRunning: Bool = false
-    @State private var timer: Timer?
+    @State private var showAlert: Bool = false
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         
@@ -31,7 +33,7 @@ struct TimerView: View {
                     HStack {
                         // a count of the tasks remaining
                         HStack {
-                            Text("\(Task.getTasks().count) Tasks Remaining")
+                            Text("\(Task.getUnfinishedTasks().count) Tasks Remaining")
                         }
                         .padding()
                         .frame(width: 200, height: 36)
@@ -75,7 +77,7 @@ struct TimerView: View {
                         
                         //focus button, puts 25 min timer
                         Button {
-                            stopTimer()
+                            self.isRunning = false
                             timeRemaining = 1500
                             isFocused = true;
                         } label: {
@@ -96,7 +98,7 @@ struct TimerView: View {
                         
                         //break button, puts 5 min timer
                         Button {
-                            stopTimer()
+                            isRunning = false
                             timeRemaining = 300
                             isFocused = false;
                         } label: {
@@ -121,11 +123,6 @@ struct TimerView: View {
                         //play/pause button
                         Button {
                             isRunning.toggle()
-                            if isRunning {
-                                startTimer()
-                            } else {
-                                stopTimer()
-                            }
                         } label : {
                             HStack {
                                 Image(systemName: isRunning ? "pause.fill" : "play.fill")
@@ -147,7 +144,7 @@ struct TimerView: View {
                         
                         //reset timer button
                         Button {
-                            stopTimer()
+                            isRunning = false
                             timeRemaining = (isFocused ? 1500 : 300)
                         } label : {
                             HStack {
@@ -177,6 +174,30 @@ struct TimerView: View {
             .cornerRadius(50)
         }
         .offset(y: 70)
+        .onAppear(perform: {
+            
+            UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (_, _) in
+                
+            }
+            
+        })
+        .onReceive(timer) { (_) in
+        
+            if isRunning {
+                
+                if timeRemaining > 0 {
+                    timeRemaining -= 1
+                } else {
+                    isRunning.toggle()
+                    Notify()
+                    showAlert.toggle()
+                }
+            }
+            
+        }
+        .alert(isPresented: $showAlert, content: {
+            Alert(title: Text("Pomodoro Timer Finished") , message: Text(isFocused ? "Done focusing, time to take a break!" : "Break time is over, lock back in!"))
+        })
     }
     
     private func formattedTime() -> String {
@@ -185,19 +206,32 @@ struct TimerView: View {
         return String(format: "%02d:%02d", minutes, second)
     }
     
-    private func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-            if timeRemaining > 0 {
-                timeRemaining -= 1
-            } else {
-                stopTimer()
-            }
-        }
-    }
+//    private func startTimer() {
+//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+//            if timeRemaining > 0 {
+//                timeRemaining -= 1
+//            } else {
+//                stopTimer()
+//                Notify()
+//            }
+//        }
+//    }
+//
+//    private func stopTimer() {
+//        isRunning = false
+//        timer.invalidate()
+//    }
     
-    private func stopTimer() {
-        isRunning = false
-        timer?.invalidate()
+    func Notify() {
+        let content = UNMutableNotificationContent()
+        content.title = "Pomodoro Timer Finished"
+        content.body = isFocused ? "Done focusing, time to take a break!" : "Break time is over, lock back in!"
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+        
+        let req = UNNotificationRequest(identifier: "MSG", content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
     }
 }
 

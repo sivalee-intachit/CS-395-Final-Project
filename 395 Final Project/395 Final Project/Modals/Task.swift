@@ -40,4 +40,16 @@ extension Task {
         }
         return tasks
     }
+    
+    static func getUnfinishedTasks() -> [Task] {
+        return Task.getTasks().filter { task in
+            task.completedDate == nil
+        }
+    }
+    
+    static func getOverdueTasks() -> [Task] {
+        return Task.getTasks().filter { task in
+            task.dueDate < Date() && task.completedDate == nil
+        }
+    }
 }
