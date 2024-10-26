@@ -11,14 +11,18 @@ import SwiftUI
 
 struct ToDoListView: View {
     @Environment(\.dismiss) var dismiss
-    // Step 1: Create private mutable variables for tasks, showingComposeView, taskToEdit
+    
     @State private var showingComposeView: Bool = false
     @State private var taskToEdit : Task?
     @State private var tasks : [Task] = []
+    
+    @State private var newTaskTitle : String = ""
+    @State private var newTaskNote : String = ""
+    @State private var newTaskDueDate : Date = Date()
+    
     var body: some View {
         VStack {
             Spacer()
-            
             ZStack {
                 Color(hex: "#FDF8F3")
                     .ignoresSafeArea()
@@ -27,6 +31,7 @@ struct ToDoListView: View {
                         Color(hex: "#FDF8F3")
                             .ignoresSafeArea()
                         List {
+                            // Existing task items
                             ForEach(tasks) { task in
                                 TaskRow(task: task, onComplete: { updatedTask in
                                     updateTask(updatedTask)
@@ -46,6 +51,7 @@ struct ToDoListView: View {
                         .frame(height: 400)
                         .padding(.bottom, 200)
                         
+                        // Add button for adding tasks to the list
                         VStack {
                             Spacer()
                             HStack {
