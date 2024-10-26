@@ -41,12 +41,10 @@ struct HomeView: View {
             
             //if boolean to show views
             if (showingTimerView) {
-                timerView.opacity(1)
-                toDoListView.opacity(0)
+                timerView
             }
             if (showingToDoListView) {
-                toDoListView.opacity(1)
-                timerView.opacity(0)
+                toDoListView
             }
             
             // navigation buttons
