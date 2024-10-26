@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct _95_Final_ProjectApp: App {
+    var globalTimer = TimerModal()
+    
     var body: some Scene {
         WindowGroup {
-            HomeView()
+            HomeView().environmentObject(TimerModal())
         }
     }
 }

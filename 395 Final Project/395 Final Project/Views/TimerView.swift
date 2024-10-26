@@ -11,6 +11,7 @@ import UserNotifications
 struct TimerView: View {
     
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var globalTimer: TimerModal
     
     @State private var timeRemaining: TimeInterval = 15
     @State private var isFocused: Bool = true
@@ -52,7 +53,7 @@ struct TimerView: View {
                     ZStack {
                         //timer outline
                         Circle()
-                            .trim(from: CGFloat(timeRemaining/(isFocused ? 1500 : 300)), to: 1)
+                            .trim(from: CGFloat(globalTimer.timeRemaining/(globalTimer.isFocused ? 1500 : 300)), to: 1)
                             .stroke(Color.black.opacity(0.09), style: StrokeStyle(lineWidth: 15, lineCap: .round))
                             .frame(width: 300, height: 300)
                             .rotationEffect(.init(degrees: -90))
@@ -77,9 +78,9 @@ struct TimerView: View {
                         
                         //focus button, puts 25 min timer
                         Button {
-                            self.isRunning = false
-                            timeRemaining = 1500
-                            isFocused = true;
+                            globalTimer.isRunning = false
+                            globalTimer.timeRemaining = 1500
+                            globalTimer.isFocused = true;
                         } label: {
                             HStack {
                                 Text("Work")
@@ -98,9 +99,9 @@ struct TimerView: View {
                         
                         //break button, puts 5 min timer
                         Button {
-                            isRunning = false
-                            timeRemaining = 300
-                            isFocused = false;
+                            globalTimer.isRunning = false
+                            globalTimer.timeRemaining = 300
+                            globalTimer.isFocused = false;
                         } label: {
                             HStack {
                                 Image(systemName: "hand.raised.fill")
@@ -122,11 +123,11 @@ struct TimerView: View {
                     HStack (spacing: 60) {
                         //play/pause button
                         Button {
-                            isRunning.toggle()
+                            globalTimer.isRunning.toggle()
                         } label : {
                             HStack {
-                                Image(systemName: isRunning ? "pause.fill" : "play.fill")
-                                Text("\(isRunning ? "Pause" : "Play")")
+                                Image(systemName: globalTimer.isRunning ? "pause.fill" : "play.fill")
+                                Text("\(globalTimer.isRunning ? "Pause" : "Play")")
                                     .fontWeight(.bold)
                             }
                             .padding(.vertical)
@@ -144,8 +145,8 @@ struct TimerView: View {
                         
                         //reset timer button
                         Button {
-                            isRunning = false
-                            timeRemaining = (isFocused ? 1500 : 300)
+                            globalTimer.isRunning = false
+                            globalTimer.timeRemaining = (globalTimer.isFocused ? 1500 : 300)
                         } label : {
                             HStack {
                                 Text("Restart")
@@ -181,14 +182,14 @@ struct TimerView: View {
             }
             
         })
-        .onReceive(timer) { (_) in
+        .onReceive(globalTimer.timer) { (_) in
         
-            if isRunning {
+            if globalTimer.isRunning {
                 
-                if timeRemaining > 0 {
-                    timeRemaining -= 1
+                if globalTimer.timeRemaining > 0 {
+                    globalTimer.timeRemaining -= 1
                 } else {
-                    isRunning.toggle()
+                    globalTimer.isRunning.toggle()
                     Notify()
                     showAlert.toggle()
                 }
@@ -196,20 +197,20 @@ struct TimerView: View {
             
         }
         .alert(isPresented: $showAlert, content: {
-            Alert(title: Text("Pomodoro Timer Finished") , message: Text(isFocused ? "Done focusing, time to take a break!" : "Break time is over, lock back in!"))
+            Alert(title: Text("Pomodoro Timer Finished") , message: Text(globalTimer.isFocused ? "Done focusing, time to take a break!" : "Break time is over, lock back in!"))
         })
     }
     
     private func formattedTime() -> String {
-        let minutes = Int(timeRemaining) / 60
-        let second = Int(timeRemaining) % 60
+        let minutes = Int(globalTimer.timeRemaining) / 60
+        let second = Int(globalTimer.timeRemaining) % 60
         return String(format: "%02d:%02d", minutes, second)
     }
     
     func Notify() {
         let content = UNMutableNotificationContent()
         content.title = "Pomodoro Timer Finished"
-        content.body = isFocused ? "Done focusing, time to take a break!" : "Break time is over, lock back in!"
+        content.body = globalTimer.isFocused ? "Done focusing, time to take a break!" : "Break time is over, lock back in!"
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
         
@@ -220,5 +221,5 @@ struct TimerView: View {
 }
 
 #Preview {
-    TimerView()
+    TimerView().environmentObject(TimerModal())
 }
