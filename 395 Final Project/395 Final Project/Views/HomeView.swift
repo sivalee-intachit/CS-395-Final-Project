@@ -25,12 +25,20 @@ struct HomeView: View {
             // simple Vstack for basic elements on home screen
             VStack {
                 HStack {
-                    VStack {
+                    VStack(alignment: .leading) {
                         Text("Today")
+                            .font(.poppinsBlack)
+                            .foregroundColor(Color(hex: "#FDF8F3"))
                         Text(Date(), style: .date)
+                            .font(.poppinsMedium)
+                            .foregroundColor(Color(hex: "#FDF8F3"))
                     }
+                    .padding(.leading, 15)
                     Spacer()
-                    Text("Icon")
+                    Image(systemName: "person.crop.circle.fill")
+                        .font(.system(size: 60))
+                        .padding(.trailing, 8)
+                        .foregroundColor(Color(hex: "#FFF9F4"))
                 }
                 .padding()
                 Spacer()
