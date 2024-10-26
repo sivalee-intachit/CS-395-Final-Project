@@ -206,22 +206,6 @@ struct TimerView: View {
         return String(format: "%02d:%02d", minutes, second)
     }
     
-//    private func startTimer() {
-//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-//            if timeRemaining > 0 {
-//                timeRemaining -= 1
-//            } else {
-//                stopTimer()
-//                Notify()
-//            }
-//        }
-//    }
-//
-//    private func stopTimer() {
-//        isRunning = false
-//        timer.invalidate()
-//    }
-    
     func Notify() {
         let content = UNMutableNotificationContent()
         content.title = "Pomodoro Timer Finished"
@@ -238,19 +222,3 @@ struct TimerView: View {
 #Preview {
     TimerView()
 }
-
-//extension Color {
-//    init(hex: String) {
-//        var cleanHexCode = hex.trimmingCharacters(in: .whitespacesAndNewlines)
-//        cleanHexCode = cleanHexCode.replacingOccurrences(of: "#", with: "")
-//        print(cleanHexCode)
-//        var rgb: UInt64 = 0
-//
-//        Scanner(string: cleanHexCode).scanHexInt64(&rgb)
-//
-//        let redValue = Double((rgb >> 16) & 0xFF) / 255.0
-//        let greenValue = Double((rgb >> 8) & 0xFF) / 255.0
-//        let blueValue = Double(rgb & 0xFF) / 255.0
-//        self.init(red: redValue, green: greenValue, blue: blueValue)
-//    }
-//}
