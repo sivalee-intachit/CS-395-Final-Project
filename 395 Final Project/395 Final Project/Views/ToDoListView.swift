@@ -10,8 +10,8 @@ import SwiftUI
 struct ToDoListView: View {
     @Environment(\.dismiss) var dismiss
     
-    @State private var taskToEdit : Task?
-    @State private var tasks : [Task] = []
+    @State private var taskToEdit : TaskModal?
+    @State private var tasks : [TaskModal] = []
    
     @State private var newTask: Bool = false
     @State private var newTaskTitle : String = ""
@@ -125,7 +125,7 @@ struct ToDoListView: View {
 
 
     private func refreshTasks() {
-        tasks = Task.getTasks().sorted { lhs, rhs in
+        tasks = TaskModal.getTasks().sorted { lhs, rhs in
             if lhs.isComplete && rhs.isComplete {
                 return lhs.completedDate! < rhs.completedDate!
             } else if !lhs.isComplete && !rhs.isComplete {
@@ -136,19 +136,19 @@ struct ToDoListView: View {
         }
     }
 
-    private func updateTask(_ updatedTask: Task) {
+    private func updateTask(_ updatedTask: TaskModal) {
         if let index = tasks.firstIndex(where: { $0.id == updatedTask.id }) {
             tasks[index] = updatedTask
         } else {
             tasks.append(updatedTask)
         }
-        Task.save(tasks)
+        TaskModal.save(tasks)
         refreshTasks()
     }
 
     private func deleteTasks(at offsets: IndexSet) {
         tasks.remove(atOffsets: offsets)
-        Task.save(tasks)
+        TaskModal.save(tasks)
     }
 }
 

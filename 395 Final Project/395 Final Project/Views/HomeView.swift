@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UserNotifications
+import PhotosUI
 
 struct HomeView: View {
     // variable TimerView to show timer
@@ -19,6 +20,8 @@ struct HomeView: View {
     // booleans to show certain view
     @State var showingTimerView = false
     @State var showingToDoListView = false
+    
+    @StateObject var profileView = ProfileViewModal()
     
     var body: some View {
         //want everything to be layered on top of each other
@@ -38,11 +41,26 @@ struct HomeView: View {
                             .foregroundColor(Color(hex: "#FDF8F3"))
                     }
                     .padding(.leading, 15)
+                    
                     Spacer()
-                    Image(systemName: "person.crop.circle.fill")
-                        .font(.system(size: 60))
-                        .padding(.trailing, 8)
-                        .foregroundColor(Color(hex: "#FFF9F4"))
+                    
+                    PhotosPicker(selection: $profileView.selectedItem) {
+                        if let profileImage = profileView.profileImage {
+                            profileImage
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .clipShape(Circle())
+                                .padding(.trailing, 8)
+                        } else {
+                            Image(systemName: "person.crop.circle.fill")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .font(.system(size: 60))
+                                .padding(.trailing, 8)
+                                .foregroundColor(Color(hex: "#FFF9F4"))
+                        }
+                    }
                 }
                 .padding()
                 Spacer()

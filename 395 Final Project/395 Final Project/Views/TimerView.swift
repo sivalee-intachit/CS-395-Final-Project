@@ -30,7 +30,7 @@ struct TimerView: View {
                     HStack {
                         // a count of the tasks remaining
                         HStack {
-                            Text("\(Task.getUnfinishedTasks().count) Tasks Remaining")
+                            Text("\(TaskModal.getUnfinishedTasks().count) Tasks Remaining")
                         }
                         .padding()
                         .frame(width: 200, height: 36)
