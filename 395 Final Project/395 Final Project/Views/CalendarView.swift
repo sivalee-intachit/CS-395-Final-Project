@@ -194,5 +194,5 @@ extension Date {
 }
 
 #Preview {
-    CalenderView()
+    CalenderView().environmentObject(TimerModal())
 }

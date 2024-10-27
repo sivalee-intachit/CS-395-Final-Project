@@ -153,5 +153,5 @@ struct ToDoListView: View {
 }
 
 #Preview {
-    ToDoListView()
+    ToDoListView().environmentObject(TimerModal())
 }

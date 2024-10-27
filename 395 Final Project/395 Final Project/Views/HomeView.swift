@@ -18,6 +18,7 @@ struct HomeView: View {
     // variable ToDoListView to show list
     var toDoListView = ToDoListView()
     // booleans to show certain view
+    @State var showingCalView = true
     @State var showingTimerView = false
     @State var showingToDoListView = false
     
@@ -49,13 +50,13 @@ struct HomeView: View {
                             profileImage
                                 .resizable()
                                 .scaledToFit()
-                                .frame(width: 100, height: 100)
+                                .frame(width: 65, height: 65)
                                 .clipShape(Circle())
                                 .padding(.trailing, 8)
                         } else {
                             Image(systemName: "person.crop.circle.fill")
                                 .resizable()
-                                .frame(width: 100, height: 100)
+                                .frame(width: 65, height: 65)
                                 .font(.system(size: 60))
                                 .padding(.trailing, 8)
                                 .foregroundColor(Color(hex: "#FFF9F4"))
@@ -71,32 +72,66 @@ struct HomeView: View {
             //if boolean to show views
             if (showingTimerView) {
                 timerView
+                    .opacity(showingTimerView ? 1 : 0)
+                    .offset(y: showingTimerView ? 0 : UIScreen.main.bounds.height)
+                    .transition(.move(edge: .bottom))
+                    .animation(.easeInOut, value: showingTimerView)
             }
             if (showingToDoListView) {
                 toDoListView
+                    .opacity(showingToDoListView ? 1 : 0)
+                    .offset(y: showingToDoListView ? 0 : UIScreen.main.bounds.height)
+                    .transition(.move(edge: .bottom))
+                    .animation(.easeInOut, value: showingToDoListView)
             }
             
-            // navigation buttons
+            // Navigation buttons
             VStack {
                 Spacer()
-                HStack (spacing: 100){
+                HStack (spacing: 55){
+                    // Timer View
                     Button (action: {
-                        //only showing one view at a time
-                        self.showingTimerView.toggle()
-                        self.showingToDoListView = false
+                        withAnimation(.spring) {
+                            self.showingCalView = false
+                            self.showingTimerView = true
+                            self.showingToDoListView = false
+                        }
                     }) {
                         Image(systemName: "timer")
+                            .foregroundColor(Color(hex: "#372F2F"))
+                            .font(.system(size: 20))
                     }
                     .frame(width: 48, height: 48)
                     .background(Color(hex: "#D9D9D9"))
                     .cornerRadius(100.0)
                     .tint(.gray)
-                    
+                    // Calendar/Home View
                     Button (action: {
-                        self.showingTimerView = false
-                        self.showingToDoListView.toggle()
+                        withAnimation(.spring) {
+                            self.showingCalView = true
+                            self.showingTimerView = false
+                            self.showingToDoListView = false
+                        }
+                    }) {
+                        Image(systemName: "calendar")
+                            .foregroundColor(Color(hex: "#372F2F"))
+                            .font(.system(size: 20))
+                    }
+                    .frame(width: 48, height: 48)
+                    .background(Color(hex: "#D9D9D9"))
+                    .cornerRadius(100.0)
+                    .tint(.gray)
+                    // To-Do List View
+                    Button (action: {
+                        withAnimation(.spring) {
+                            self.showingCalView = false
+                            self.showingTimerView = false
+                            self.showingToDoListView = true
+                        }
                     }) {
                         Image(systemName: "list.clipboard")
+                            .foregroundColor(Color(hex: "#372F2F"))
+                            .font(.system(size: 20))
                     }
                     .frame(width: 48, height: 48)
                     .background(Color(hex: "#D9D9D9"))
