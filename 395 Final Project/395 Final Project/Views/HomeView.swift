@@ -72,11 +72,12 @@ struct HomeView: View {
             //if boolean to show views
             if (showingTimerView) {
                 timerView
+                    .opacity(showingTimerView ? 1 : 0)
+                    .offset(y: showingTimerView ? 0 : UIScreen.main.bounds.height)
                     .transition(.move(edge: .bottom))
+                    .animation(.easeInOut, value: showingTimerView)
             }
             if (showingToDoListView) {
-//                toDoListView
-//                    .transition(.move(edge: .bottom))
                 toDoListView
                     .opacity(showingToDoListView ? 1 : 0)
                     .offset(y: showingToDoListView ? 0 : UIScreen.main.bounds.height)

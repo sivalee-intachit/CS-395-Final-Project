@@ -31,9 +31,9 @@ struct TimerView: View {
                         // a count of the tasks remaining
                         HStack {
                             Text("\(TaskModal.getUnfinishedTasks().count) Tasks Remaining")
+                                .font(.poppinsMedium)
                         }
-                        .padding()
-                        .frame(width: 200, height: 36)
+                        .frame(width: 225, height: 36)
                         .font(.system(size:18))
                         .foregroundStyle(Color(hex: "6D5F60"))
                         .background(Color(hex: "F4DAB9"))
@@ -41,7 +41,7 @@ struct TimerView: View {
                         
                         Spacer()
                     }
-                    .padding(25)
+                    .padding(EdgeInsets(top: 30, leading: 30, bottom: 15, trailing: 0))
                     
                     //Spacer()
                     
@@ -51,7 +51,7 @@ struct TimerView: View {
                         Circle()
                             .trim(from: CGFloat(globalTimer.timeRemaining/(globalTimer.isFocused ? 1500 : 300)), to: 1)
                             .stroke(Color.black.opacity(0.09), style: StrokeStyle(lineWidth: 15, lineCap: .round))
-                            .frame(width: 300, height: 300)
+                            .frame(width: 275, height: 275)
                             .rotationEffect(.init(degrees: -90))
                         
                         //time in minutes:seconds
@@ -62,7 +62,7 @@ struct TimerView: View {
                                 .fontWeight(.bold)
                         }
                     }
-                    .padding(25)
+                    .padding(EdgeInsets(top: 18, leading: 25, bottom: 25, trailing: 25))
                     
                     
                     //                Spacer()
@@ -80,11 +80,11 @@ struct TimerView: View {
                         } label: {
                             HStack {
                                 Text("Work")
-                                    .fontWeight(.bold)
+                                    .font(.poppinsMedium)
                                 Image(systemName: "figure.strengthtraining.traditional")
                             }
                             .padding(.vertical)
-                            .frame(width: 100, height: 40)
+                            .frame(width: 110, height: 40)
                             .background(Color(hex: "#D9D9D9"))
                             .foregroundStyle(Color(hex: "#FDF8F3"))
                             .font(.system(size:15))
@@ -102,10 +102,10 @@ struct TimerView: View {
                             HStack {
                                 Image(systemName: "hand.raised.fill")
                                 Text("Break")
-                                    .fontWeight(.bold)
+                                    .font(.poppinsMedium)
                             }
                             .padding(.vertical)
-                            .frame(width: 100, height: 40)
+                            .frame(width: 110, height: 40)
                             .background(Color(hex: "#D9D9D9"))
                             .foregroundStyle(Color(hex: "#FDF8F3"))
                             .font(.system(size:15))
@@ -125,10 +125,10 @@ struct TimerView: View {
                             HStack {
                                 Image(systemName: globalTimer.isRunning ? "pause.fill" : "play.fill")
                                 Text("\(globalTimer.isRunning ? "Pause" : "Play")")
-                                    .fontWeight(.bold)
+                                    .font(.poppinsMedium)
                             }
                             .padding(.vertical)
-                            .frame(width: 120, height: 60)
+                            .frame(width: 130, height: 60)
                             .background(Color(hex: "B3B792"))
                             .foregroundStyle(Color(hex: "#FDF8F3"))
                             .font(.system(size:20))
@@ -147,11 +147,11 @@ struct TimerView: View {
                         } label : {
                             HStack {
                                 Text("Restart")
-                                    .fontWeight(.bold)
+                                    .font(.poppinsMedium)
                                 Image(systemName: "arrow.counterclockwise")
                             }
                             .padding(.vertical)
-                            .frame(width: 120, height: 60)
+                            .frame(width: 130, height: 60)
                             .background(Color(hex: "E8B6B4"))
                             .foregroundStyle(Color(hex: "#FDF8F3"))
                             .font(.system(size:20))
@@ -171,7 +171,7 @@ struct TimerView: View {
             .frame(maxHeight: 750)
             .cornerRadius(50)
         }
-        .offset(y: 70)
+        .offset(y: 80)
         .onAppear(perform: {
             
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (_, _) in
