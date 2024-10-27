@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		743F41372CCD946800592CDC /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743F41342CCD946800592CDC /* Poppins-Medium.ttf */; };
+		743F41382CCD946800592CDC /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743F41352CCD946800592CDC /* Poppins-Regular.ttf */; };
+		743F41392CCD946800592CDC /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743F41332CCD946800592CDC /* Poppins-Black.ttf */; };
 		74E5638B2CC69ED700F90378 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E5638A2CC69ED500F90378 /* Task.swift */; };
 		74E5638D2CC69F0700F90378 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E5638C2CC69F0500F90378 /* TaskRow.swift */; };
-		74E563902CC69F7200F90378 /* TaskComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E5638F2CC69F6E00F90378 /* TaskComposeView.swift */; };
+		74F37F122CCDCA3C00215385 /* TaskComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F37F112CCDCA3900215385 /* TaskComposeView.swift */; };
 		CA362A252C98C50D002A1EB5 /* _95_Final_ProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */; };
 		CA362A292C98C50F002A1EB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA362A282C98C50F002A1EB5 /* Assets.xcassets */; };
 		CA362A2D2C98C50F002A1EB5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA362A2C2C98C50F002A1EB5 /* Preview Assets.xcassets */; };
@@ -21,10 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		743F41332CCD946800592CDC /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
+		743F41342CCD946800592CDC /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		743F41352CCD946800592CDC /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		7478F7792CC87D0B00407A91 /* -95-Final-Project-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-95-Final-Project-Info.plist"; sourceTree = SOURCE_ROOT; };
 		74E5638A2CC69ED500F90378 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		74E5638C2CC69F0500F90378 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
-		74E5638F2CC69F6E00F90378 /* TaskComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskComposeView.swift; sourceTree = "<group>"; };
+		74F37F112CCDCA3900215385 /* TaskComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskComposeView.swift; sourceTree = "<group>"; };
 		CA362A212C98C50D002A1EB5 /* 395 Final Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "395 Final Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _95_Final_ProjectApp.swift; sourceTree = "<group>"; };
 		CA362A282C98C50F002A1EB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,6 +58,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		743F41362CCD946800592CDC /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				743F41332CCD946800592CDC /* Poppins-Black.ttf */,
+				743F41342CCD946800592CDC /* Poppins-Medium.ttf */,
+				743F41352CCD946800592CDC /* Poppins-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		CA362A182C98C50D002A1EB5 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +95,7 @@
 				CA362A2B2C98C50F002A1EB5 /* Preview Content */,
 				74241F712CC610920040888F /* Extensions */,
 				CA362A242C98C50D002A1EB5 /* _95_Final_ProjectApp.swift */,
+				743F41362CCD946800592CDC /* Fonts */,
 			);
 			path = "395 Final Project";
 			sourceTree = "<group>";
@@ -94,8 +111,8 @@
 		CA362A712C9FABF9002A1EB5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				74F37F112CCDCA3900215385 /* TaskComposeView.swift */,
 				CA723BD12CCD8F16006FCA4B /* CalendarView.swift */,
-				74E5638F2CC69F6E00F90378 /* TaskComposeView.swift */,
 				74E5638C2CC69F0500F90378 /* TaskRow.swift */,
 				CA362A742C9FACFF002A1EB5 /* TimerView.swift */,
 				CA362A762C9FAD13002A1EB5 /* ToDoListView.swift */,
@@ -175,6 +192,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA362A2D2C98C50F002A1EB5 /* Preview Assets.xcassets in Resources */,
+				743F41372CCD946800592CDC /* Poppins-Medium.ttf in Resources */,
+				743F41382CCD946800592CDC /* Poppins-Regular.ttf in Resources */,
+				743F41392CCD946800592CDC /* Poppins-Black.ttf in Resources */,
 				CA362A292C98C50F002A1EB5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,11 +208,11 @@
 			files = (
 				CA723BD42CCD8F43006FCA4B /* TimerModal.swift in Sources */,
 				CA362A752C9FACFF002A1EB5 /* TimerView.swift in Sources */,
-				74E563902CC69F7200F90378 /* TaskComposeView.swift in Sources */,
 				CA362A772C9FAD13002A1EB5 /* ToDoListView.swift in Sources */,
 				CA723BD22CCD8F1B006FCA4B /* CalendarView.swift in Sources */,
 				74E5638D2CC69F0700F90378 /* TaskRow.swift in Sources */,
 				CA362A792C9FAE10002A1EB5 /* HomeView.swift in Sources */,
+				74F37F122CCDCA3C00215385 /* TaskComposeView.swift in Sources */,
 				74E5638B2CC69ED700F90378 /* Task.swift in Sources */,
 				CA362A252C98C50D002A1EB5 /* _95_Final_ProjectApp.swift in Sources */,
 			);

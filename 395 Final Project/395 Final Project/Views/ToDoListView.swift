@@ -9,11 +9,15 @@ import SwiftUI
 
 struct ToDoListView: View {
     @Environment(\.dismiss) var dismiss
-    // Step 1: Create private mutable variables for tasks, showingComposeView, taskToEdit
-    @State private var showingComposeView: Bool = false
+    
     @State private var taskToEdit : Task?
     @State private var tasks : [Task] = []
-    
+   
+    @State private var newTask: Bool = false
+    @State private var newTaskTitle : String = ""
+    @State private var newTaskNote : String = ""
+    @State private var newTaskDueDate : Date = Date()
+  
     @EnvironmentObject var globalTimer: TimerModal
     @State private var showAlert: Bool = false
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -21,7 +25,6 @@ struct ToDoListView: View {
     var body: some View {
         VStack {
             Spacer()
-            
             ZStack {
                 Color(hex: "#FDF8F3")
                     .ignoresSafeArea()
@@ -30,18 +33,45 @@ struct ToDoListView: View {
                         Color(hex: "#FDF8F3")
                             .ignoresSafeArea()
                         List {
-                            ForEach(tasks) { task in
-                                TaskRow(task: task, onComplete: { updatedTask in
+                            // Input Row for New Task
+                            if (newTask) {
+                                TaskComposeView(taskToEdit: taskToEdit, onSave: {updatedTask in
                                     updateTask(updatedTask)
+                                    taskToEdit = nil
+                                    newTask = false
                                 })
-                                .contentShape(Rectangle())
-                                .onTapGesture {
-                                    taskToEdit = task
-                                    showingComposeView.toggle()
-                                }
+                                .listRowInsets(EdgeInsets(top: 0, leading: 50, bottom: 10, trailing: 50))
                                 .listRowBackground(Color.clear)
-                                .listRowSeparator(.hidden)
-                                .listRowInsets(EdgeInsets(top: 0, leading: 50, bottom: 15, trailing: 50))
+                            }
+                            // Existing task items
+                            ForEach(tasks) { task in
+                                // If the task has been prompted to be edited, show the task compose view
+                                if let taskToEditTemp = taskToEdit, task.id == taskToEditTemp.id {
+                                    TaskComposeView(
+                                        taskToEdit: taskToEdit,
+                                        onSave: { updatedTask in
+                                            updateTask(updatedTask)
+                                            taskToEdit = nil
+                                        }
+                                    )
+                                    .listRowInsets(EdgeInsets(top: 0, leading: 50, bottom: 10, trailing: 50))
+                                    .listRowSeparator(.hidden)
+                                    .listRowBackground(Color.clear)
+                                }
+                                // Otherwise, display the contents of the task normally
+                                else {
+                                    TaskRow(task: task, onComplete: { updatedTask in
+                                        updateTask(updatedTask)
+                                    })
+                                    .contentShape(Rectangle())
+                                    .onTapGesture {
+                                        taskToEdit = task
+                                    }
+                                    .listRowBackground(Color.clear)
+                                    .listRowSeparator(.hidden)
+                                    .listRowInsets(EdgeInsets(top: 0, leading: 50, bottom: 15, trailing: 50))
+                                }
+                                
                             }
                             .onDelete(perform: deleteTasks)
                         }
@@ -49,28 +79,23 @@ struct ToDoListView: View {
                         .frame(height: 400)
                         .padding(.bottom, 200)
                         
+                        // Add button for adding tasks to the list
                         VStack {
                             Spacer()
                             HStack {
                                 Spacer()
                                 Button(action: {
                                     taskToEdit = nil
-                                    showingComposeView.toggle()
+                                    newTask.toggle()
                                     }
                                 ) {
-                                    Image(systemName: "plus.circle.fill").foregroundColor(Color(hex: "#F4DAB9"))
-                                    .font(.system(size: 50))
-                                    .padding()
+                                    Image(systemName: "plus.circle.fill")
+                                        .symbolRenderingMode(.palette)
+                                        .foregroundStyle(Color(hex: "#6D5F60"), Color(hex: "#F4DAB9"))
+                                        .font(.system(size: 50))
+                                        .padding()
                                 }
                                 .frame(width: 60, height: 50)
-                                .sheet(isPresented: $showingComposeView, onDismiss: {
-                                    taskToEdit = nil
-                                }) {
-                                    TaskComposeView(taskToEdit: taskToEdit, onSave: {updatedTask in
-                                        updateTask(updatedTask)
-                                        taskToEdit = nil
-                                    })
-                                }
                             }
                         }
                         .padding(.trailing, 50)

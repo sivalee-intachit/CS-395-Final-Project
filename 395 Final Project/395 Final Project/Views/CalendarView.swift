@@ -20,6 +20,7 @@ struct CalenderView: View {
             
             HStack {
                 Text("\(Task.getUnfinishedTasks().count) Unfinished Tasks")
+                    .font(.poppinsMedium)
             }
             .padding()
             .frame(width: 316, height: 36)
@@ -30,6 +31,7 @@ struct CalenderView: View {
             
             HStack {
                 Text("\(Task.getOverdueTasks().count) Overdue Tasks")
+                    .font(.poppinsMedium)
             }
             .padding()
             .frame(width: 316, height: 36)
