@@ -110,9 +110,8 @@ struct ToDoListView: View {
         }
         .offset(y: 80)
         .onReceive(timer) { (_) in
-        
+            // In-App notification when timer is done
             if globalTimer.isRunning {
-                
                 if globalTimer.timeRemaining <= 0 {
                     globalTimer.stopTimer()
                     showAlert.toggle()
@@ -123,7 +122,6 @@ struct ToDoListView: View {
             Alert(title: Text("Pomodoro Timer Finished") , message: Text(globalTimer.isFocused ? "Done focusing, time to take a break!" : "Break time is over, lock back in!"))
         })
     }
-
 
     private func refreshTasks() {
         tasks = TaskModal.getTasks().sorted { lhs, rhs in

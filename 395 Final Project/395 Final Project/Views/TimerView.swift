@@ -23,12 +23,9 @@ struct TimerView: View {
             ZStack {
                 Color(hex: "#FDF8F3")
                     .ignoresSafeArea()
-                
                 VStack {
-                    //                Spacer()
-                    
                     HStack {
-                        // a count of the tasks remaining
+                        // Count of the tasks remaining
                         HStack {
                             Text("\(TaskModal.getUnfinishedTasks().count) Tasks Remaining")
                                 .font(.poppinsMedium)
@@ -38,23 +35,18 @@ struct TimerView: View {
                         .foregroundStyle(Color(hex: "6D5F60"))
                         .background(Color(hex: "F4DAB9"))
                         .clipShape(Capsule())
-                        
                         Spacer()
                     }
                     .padding(EdgeInsets(top: 30, leading: 30, bottom: 15, trailing: 0))
-                    
-                    //Spacer()
-                    
-                    //the timer count down and circle countdown
+                    //Timer interface
                     ZStack {
-                        //timer outline
+                        //Circle around the timer
                         Circle()
                             .trim(from: CGFloat(globalTimer.timeRemaining/(globalTimer.isFocused ? 1500 : 300)), to: 1)
                             .stroke(Color.black.opacity(0.09), style: StrokeStyle(lineWidth: 15, lineCap: .round))
                             .frame(width: 275, height: 275)
                             .rotationEffect(.init(degrees: -90))
-                        
-                        //time in minutes:seconds
+                        //Time in minutes:seconds
                         VStack {
                             Text(formattedTime())
                                 .foregroundStyle(Color(hex: "6D5F60"))
@@ -63,16 +55,10 @@ struct TimerView: View {
                         }
                     }
                     .padding(EdgeInsets(top: 18, leading: 25, bottom: 25, trailing: 25))
-                    
-                    
-                    //                Spacer()
-                    
-                    //buttons to switch between 25 and 5 minute timers
+                    //Buttons to switch between 25 and 5 minute timers
                     HStack {
-                        
                         Spacer()
-                        
-                        //focus button, puts 25 min timer
+                        //Focus button, puts 25 min timer
                         Button {
                             globalTimer.stopTimer()
                             globalTimer.timeRemaining = 1500
@@ -90,10 +76,8 @@ struct TimerView: View {
                             .font(.system(size:15))
                             .clipShape(Capsule())
                         }
-                        
                         Spacer()
-                        
-                        //break button, puts 5 min timer
+                        //Break button, puts 5 min timer
                         Button {
                             globalTimer.stopTimer()
                             globalTimer.timeRemaining = 300
@@ -111,15 +95,12 @@ struct TimerView: View {
                             .font(.system(size:15))
                             .clipShape(Capsule())
                         }
-                        
                         Spacer()
                     }
-                    
-                    // buttons to pause/resume and reset timer
+                    // Buttons to pause/resume and reset timer
                     HStack (spacing: 60) {
-                        //play/pause button
+                        //Play/Pause button
                         Button {
-//                            globalTimer.isRunning.toggle()
                             globalTimer.isRunning ? globalTimer.stopTimer() : globalTimer.startTimer()
                         } label : {
                             HStack {
@@ -134,13 +115,7 @@ struct TimerView: View {
                             .font(.system(size:20))
                             .clipShape(Capsule())
                         }
-                        
-//                        Image(systemName: "play.fill")
-//                            .frame(width: 60, height: 60)
-//                            .background(Color(hex: "B3B792"))
-//                            .cornerRadius(100)
-                        
-                        //reset timer button
+                        // Reset timer button
                         Button {
                             globalTimer.stopTimer()
                             globalTimer.timeRemaining = (globalTimer.isFocused ? 1500 : 300)
@@ -157,14 +132,8 @@ struct TimerView: View {
                             .font(.system(size:20))
                             .clipShape(Capsule())
                         }
-                        
-//                        Image(systemName: "pause.fill")
-//                            .frame(width: 60, height: 60)
-//                            .background(Color(hex: "E8B6B4"))
-//                            .cornerRadius(100)
                     }
                     .frame(width:200, height: 90)
-                    
                     Spacer()
                 }
             }
@@ -173,16 +142,13 @@ struct TimerView: View {
         }
         .offset(y: 80)
         .onAppear(perform: {
-            
+            // Asks user for permission to send notifications
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (_, _) in
-                
             }
-            
         })
         .onReceive(timer) { (_) in
-        
+            // In-App notification when timer is done
             if globalTimer.isRunning {
-                
                 if globalTimer.timeRemaining <= 0 {
                     globalTimer.stopTimer()
                     Notify()
@@ -195,21 +161,20 @@ struct TimerView: View {
         })
     }
     
+    // Formats time into minutes:seconds
     private func formattedTime() -> String {
         let minutes = Int(globalTimer.timeRemaining) / 60
         let second = Int(globalTimer.timeRemaining) % 60
         return String(format: "%02d:%02d", minutes, second)
     }
     
+    //Send notification while app is in background
     public func Notify() {
         let content = UNMutableNotificationContent()
         content.title = "Pomodoro Timer Finished"
         content.body = globalTimer.isFocused ? "Done focusing, time to take a break!" : "Break time is over, lock back in!"
-        
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
-        
         let req = UNNotificationRequest(identifier: "MSG", content: content, trigger: trigger)
-        
         UNUserNotificationCenter.current().add(req, withCompletionHandler: nil)
     }
 }

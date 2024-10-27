@@ -147,9 +147,8 @@ struct HomeView: View {
             }
         }
         .onReceive(timer) { (_) in
-        
+            // In-App notification when timer is done
             if globalTimer.isRunning {
-                
                 if globalTimer.timeRemaining <= 0 {
                     globalTimer.stopTimer()
                     showAlert.toggle()
