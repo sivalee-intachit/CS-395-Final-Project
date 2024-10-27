@@ -7,15 +7,21 @@
 
 import SwiftUI
 import UserNotifications
+import PhotosUI
 
 struct HomeView: View {
     // variable TimerView to show timer
     var timerView = TimerView()
+    @EnvironmentObject var globalTimer: TimerModal
+    @State private var showAlert: Bool = false
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     // variable ToDoListView to show list
     var toDoListView = ToDoListView()
     // booleans to show certain view
     @State var showingTimerView = false
     @State var showingToDoListView = false
+    
+    @StateObject var profileView = ProfileViewModal()
     
     var body: some View {
         //want everything to be layered on top of each other
@@ -35,11 +41,26 @@ struct HomeView: View {
                             .foregroundColor(Color(hex: "#FDF8F3"))
                     }
                     .padding(.leading, 15)
+                    
                     Spacer()
-                    Image(systemName: "person.crop.circle.fill")
-                        .font(.system(size: 60))
-                        .padding(.trailing, 8)
-                        .foregroundColor(Color(hex: "#FFF9F4"))
+                    
+                    PhotosPicker(selection: $profileView.selectedItem) {
+                        if let profileImage = profileView.profileImage {
+                            profileImage
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                                .clipShape(Circle())
+                                .padding(.trailing, 8)
+                        } else {
+                            Image(systemName: "person.crop.circle.fill")
+                                .resizable()
+                                .frame(width: 100, height: 100)
+                                .font(.system(size: 60))
+                                .padding(.trailing, 8)
+                                .foregroundColor(Color(hex: "#FFF9F4"))
+                        }
+                    }
                 }
                 .padding()
                 Spacer()
@@ -88,6 +109,19 @@ struct HomeView: View {
                 .padding()
             }
         }
+        .onReceive(timer) { (_) in
+        
+            if globalTimer.isRunning {
+                
+                if globalTimer.timeRemaining <= 0 {
+                    globalTimer.stopTimer()
+                    showAlert.toggle()
+                }
+            }
+        }
+        .alert(isPresented: $showAlert, content: {
+            Alert(title: Text("Pomodoro Timer Finished") , message: Text(globalTimer.isFocused ? "Done focusing, time to take a break!" : "Break time is over, lock back in!"))
+        })
     }
 }
 

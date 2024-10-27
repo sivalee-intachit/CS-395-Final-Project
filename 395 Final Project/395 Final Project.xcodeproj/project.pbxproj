@@ -22,6 +22,7 @@
 		CA362A792C9FAE10002A1EB5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA362A782C9FAE10002A1EB5 /* HomeView.swift */; };
 		CA723BD22CCD8F1B006FCA4B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA723BD12CCD8F16006FCA4B /* CalendarView.swift */; };
 		CA723BD42CCD8F43006FCA4B /* TimerModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA723BD32CCD8F40006FCA4B /* TimerModal.swift */; };
+		CA723BEA2CCDF175006FCA4B /* TaskModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA723BE92CCDF172006FCA4B /* TaskModal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +31,6 @@
 		743F41352CCD946800592CDC /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		74610B772CCE01300084D795 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		7478F7792CC87D0B00407A91 /* -95-Final-Project-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-95-Final-Project-Info.plist"; sourceTree = SOURCE_ROOT; };
-		74E5638A2CC69ED500F90378 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		74E5638C2CC69F0500F90378 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
 		74F37F112CCDCA3900215385 /* TaskComposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskComposeView.swift; sourceTree = "<group>"; };
 		CA362A212C98C50D002A1EB5 /* 395 Final Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "395 Final Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,10 +43,12 @@
 		CA362A782C9FAE10002A1EB5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		CA723BD12CCD8F16006FCA4B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		CA723BD32CCD8F40006FCA4B /* TimerModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModal.swift; sourceTree = "<group>"; };
+		CA723BE92CCDF172006FCA4B /* TaskModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		74241F712CC610920040888F /* Extensions */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Extensions; sourceTree = "<group>"; };
+		CA723BE52CCDEE8F006FCA4B /* ViewModal */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ViewModal; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		CA362A232C98C50D002A1EB5 /* 395 Final Project */ = {
 			isa = PBXGroup;
 			children = (
+				CA723BE52CCDEE8F006FCA4B /* ViewModal */,
 				7478F7792CC87D0B00407A91 /* -95-Final-Project-Info.plist */,
 				CA362A722C9FAC24002A1EB5 /* Modals */,
 				CA362A712C9FABF9002A1EB5 /* Views */,
@@ -127,8 +130,8 @@
 		CA362A722C9FAC24002A1EB5 /* Modals */ = {
 			isa = PBXGroup;
 			children = (
+				CA723BE92CCDF172006FCA4B /* TaskModal.swift */,
 				CA723BD32CCD8F40006FCA4B /* TimerModal.swift */,
-				74E5638A2CC69ED500F90378 /* Task.swift */,
 			);
 			path = Modals;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				74241F712CC610920040888F /* Extensions */,
+				CA723BE52CCDEE8F006FCA4B /* ViewModal */,
 			);
 			name = "395 Final Project";
 			productName = "395 Final Project";
@@ -210,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA723BEA2CCDF175006FCA4B /* TaskModal.swift in Sources */,
 				CA723BD42CCD8F43006FCA4B /* TimerModal.swift in Sources */,
 				CA362A752C9FACFF002A1EB5 /* TimerView.swift in Sources */,
 				CA362A772C9FAD13002A1EB5 /* ToDoListView.swift in Sources */,
@@ -217,7 +222,6 @@
 				74E5638D2CC69F0700F90378 /* TaskRow.swift in Sources */,
 				CA362A792C9FAE10002A1EB5 /* HomeView.swift in Sources */,
 				74F37F122CCDCA3C00215385 /* TaskComposeView.swift in Sources */,
-				74E5638B2CC69ED700F90378 /* Task.swift in Sources */,
 				CA362A252C98C50D002A1EB5 /* _95_Final_ProjectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

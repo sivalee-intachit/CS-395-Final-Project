@@ -9,8 +9,8 @@ import SwiftUI
 
 struct TaskComposeView: View {
     @Environment(\.presentationMode) var presentationMode
-    let taskToEdit: Task?
-    var onSave: (Task) -> Void
+    let taskToEdit: TaskModal?
+    var onSave: (TaskModal) -> Void
     
     @State private var title = ""
     @State private var note = ""
@@ -42,7 +42,7 @@ struct TaskComposeView: View {
             }
             Button {
                 if (!title.isEmpty) {
-                    let new_task = Task(id: taskToEdit?.id ?? UUID().uuidString, title: title, note: note, dueDate: dueDate, isComplete: taskToEdit?.isComplete ?? false, completedDate: taskToEdit?.completedDate ?? nil)
+                    let new_task = TaskModal(id: taskToEdit?.id ?? UUID().uuidString, title: title, note: note, dueDate: dueDate, isComplete: taskToEdit?.isComplete ?? false, completedDate: taskToEdit?.completedDate ?? nil)
                     onSave(new_task)
                     presentationMode.wrappedValue.dismiss()
                 }

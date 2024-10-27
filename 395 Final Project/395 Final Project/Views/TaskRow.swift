@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct TaskRow: View {
-    let task: Task
-    var onComplete: (Task) -> Void
+    let task: TaskModal
+    var onComplete: (TaskModal) -> Void
 
     var body: some View {
         HStack {
@@ -46,7 +46,7 @@ struct TaskRow: View {
 
 #Preview {
     TaskRow(
-        task: Task(
+        task: TaskModal(
             id: UUID().uuidString,
             title: "Finish SwiftUI Project",
             note: "Complete by end of the week",
