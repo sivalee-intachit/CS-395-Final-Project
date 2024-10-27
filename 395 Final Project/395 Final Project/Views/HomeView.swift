@@ -12,7 +12,7 @@ struct HomeView: View {
     // variable TimerView to show timer
     var timerView = TimerView()
     @EnvironmentObject var globalTimer: TimerModal
-    @State var showAlert: Bool = false
+    @State private var showAlert: Bool = false
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     // variable ToDoListView to show list
     var toDoListView = ToDoListView()

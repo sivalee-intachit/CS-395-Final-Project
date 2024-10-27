@@ -8,7 +8,7 @@
 import Foundation
 
 class TimerModal: ObservableObject {
-    @Published var timeRemaining: TimeInterval = 15 //1500 //25 mins, 15 for demo
+    @Published var timeRemaining: TimeInterval = 8 //1500 //25 mins, 15 for demo
     @Published var isFocused: Bool = true
     @Published var isRunning: Bool = false
     @Published var showAlert: Bool = false

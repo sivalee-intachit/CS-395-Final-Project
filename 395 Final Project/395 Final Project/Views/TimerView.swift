@@ -12,10 +12,6 @@ struct TimerView: View {
     
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var globalTimer: TimerModal
-    
-//    @State private var timeRemaining: TimeInterval = 15
-//    @State private var isFocused: Bool = true
-//    @State private var isRunning: Bool = false
     @State private var showAlert: Bool = false
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
