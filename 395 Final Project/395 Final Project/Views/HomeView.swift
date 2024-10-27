@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UserNotifications
+import PhotosUI
 
 struct HomeView: View {
     // variable TimerView to show timer
@@ -38,11 +39,15 @@ struct HomeView: View {
                             .foregroundColor(Color(hex: "#FDF8F3"))
                     }
                     .padding(.leading, 15)
+                    
                     Spacer()
-                    Image(systemName: "person.crop.circle.fill")
-                        .font(.system(size: 60))
-                        .padding(.trailing, 8)
-                        .foregroundColor(Color(hex: "#FFF9F4"))
+                    
+//                    PhotosPicker(selection: ) {
+                        Image(systemName: "person.crop.circle.fill")
+                            .font(.system(size: 60))
+                            .padding(.trailing, 8)
+                            .foregroundColor(Color(hex: "#FFF9F4"))
+//                    }
                 }
                 .padding()
                 Spacer()

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Task: Identifiable, Codable {
+struct TaskModal: Identifiable, Codable {
     let id: String
     var title: String
     var note: String?
@@ -27,28 +27,28 @@ struct Task: Identifiable, Codable {
     }
 }
 
-extension Task {
-    static func save(_ tasks: [Task]) {
+extension TaskModal {
+    static func save(_ tasks: [TaskModal]) {
         let data = try? JSONEncoder().encode(tasks)
         UserDefaults.standard.set(data, forKey: "Tasks")
     }
 
-    static func getTasks() -> [Task] {
+    static func getTasks() -> [TaskModal] {
         guard let data = UserDefaults.standard.data(forKey: "Tasks"),
-              let tasks = try? JSONDecoder().decode([Task].self, from: data) else {
+              let tasks = try? JSONDecoder().decode([TaskModal].self, from: data) else {
             return []
         }
         return tasks
     }
     
-    static func getUnfinishedTasks() -> [Task] {
-        return Task.getTasks().filter { task in
+    static func getUnfinishedTasks() -> [TaskModal] {
+        return TaskModal.getTasks().filter { task in
             task.completedDate == nil
         }
     }
     
-    static func getOverdueTasks() -> [Task] {
-        return Task.getTasks().filter { task in
+    static func getOverdueTasks() -> [TaskModal] {
+        return TaskModal.getTasks().filter { task in
             task.dueDate < Date() && task.completedDate == nil
         }
     }

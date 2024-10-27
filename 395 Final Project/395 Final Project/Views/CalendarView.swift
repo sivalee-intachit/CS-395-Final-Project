@@ -19,7 +19,7 @@ struct CalenderView: View {
 //                .foregroundColor(Color(hex: "FDF8F3"))
             
             HStack {
-                Text("\(Task.getUnfinishedTasks().count) Unfinished Tasks")
+                Text("\(TaskModal.getUnfinishedTasks().count) Unfinished Tasks")
                     .font(.poppinsMedium)
             }
             .padding()
@@ -30,7 +30,7 @@ struct CalenderView: View {
             .clipShape(Capsule())
             
             HStack {
-                Text("\(Task.getOverdueTasks().count) Overdue Tasks")
+                Text("\(TaskModal.getOverdueTasks().count) Overdue Tasks")
                     .font(.poppinsMedium)
             }
             .padding()
