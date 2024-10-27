@@ -13,9 +13,9 @@ struct TimerView: View {
     @Environment(\.dismiss) var dismiss
     @EnvironmentObject var globalTimer: TimerModal
     
-    @State private var timeRemaining: TimeInterval = 15
-    @State private var isFocused: Bool = true
-    @State private var isRunning: Bool = false
+//    @State private var timeRemaining: TimeInterval = 15
+//    @State private var isFocused: Bool = true
+//    @State private var isRunning: Bool = false
     @State private var showAlert: Bool = false
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
@@ -78,7 +78,7 @@ struct TimerView: View {
                         
                         //focus button, puts 25 min timer
                         Button {
-                            globalTimer.isRunning = false
+                            globalTimer.stopTimer()
                             globalTimer.timeRemaining = 1500
                             globalTimer.isFocused = true;
                         } label: {
@@ -99,7 +99,7 @@ struct TimerView: View {
                         
                         //break button, puts 5 min timer
                         Button {
-                            globalTimer.isRunning = false
+                            globalTimer.stopTimer()
                             globalTimer.timeRemaining = 300
                             globalTimer.isFocused = false;
                         } label: {
@@ -123,7 +123,8 @@ struct TimerView: View {
                     HStack (spacing: 60) {
                         //play/pause button
                         Button {
-                            globalTimer.isRunning.toggle()
+//                            globalTimer.isRunning.toggle()
+                            globalTimer.isRunning ? globalTimer.stopTimer() : globalTimer.startTimer()
                         } label : {
                             HStack {
                                 Image(systemName: globalTimer.isRunning ? "pause.fill" : "play.fill")
@@ -145,7 +146,7 @@ struct TimerView: View {
                         
                         //reset timer button
                         Button {
-                            globalTimer.isRunning = false
+                            globalTimer.stopTimer()
                             globalTimer.timeRemaining = (globalTimer.isFocused ? 1500 : 300)
                         } label : {
                             HStack {
@@ -182,19 +183,16 @@ struct TimerView: View {
             }
             
         })
-        .onReceive(globalTimer.timer) { (_) in
+        .onReceive(timer) { (_) in
         
             if globalTimer.isRunning {
                 
-                if globalTimer.timeRemaining > 0 {
-                    globalTimer.timeRemaining -= 1
-                } else {
-                    globalTimer.isRunning.toggle()
+                if globalTimer.timeRemaining <= 0 {
+                    globalTimer.stopTimer()
                     Notify()
                     showAlert.toggle()
                 }
             }
-            
         }
         .alert(isPresented: $showAlert, content: {
             Alert(title: Text("Pomodoro Timer Finished") , message: Text(globalTimer.isFocused ? "Done focusing, time to take a break!" : "Break time is over, lock back in!"))
@@ -207,7 +205,7 @@ struct TimerView: View {
         return String(format: "%02d:%02d", minutes, second)
     }
     
-    func Notify() {
+    public func Notify() {
         let content = UNMutableNotificationContent()
         content.title = "Pomodoro Timer Finished"
         content.body = globalTimer.isFocused ? "Done focusing, time to take a break!" : "Break time is over, lock back in!"

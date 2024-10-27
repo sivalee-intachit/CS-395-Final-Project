@@ -11,6 +11,9 @@ import UserNotifications
 struct HomeView: View {
     // variable TimerView to show timer
     var timerView = TimerView()
+    @EnvironmentObject var globalTimer: TimerModal
+    @State var showAlert: Bool = false
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     // variable ToDoListView to show list
     var toDoListView = ToDoListView()
     // booleans to show certain view
@@ -88,6 +91,19 @@ struct HomeView: View {
                 .padding()
             }
         }
+        .onReceive(timer) { (_) in
+        
+            if globalTimer.isRunning {
+                
+                if globalTimer.timeRemaining <= 0 {
+                    globalTimer.stopTimer()
+                    showAlert.toggle()
+                }
+            }
+        }
+        .alert(isPresented: $showAlert, content: {
+            Alert(title: Text("Pomodoro Timer Finished") , message: Text(globalTimer.isFocused ? "Done focusing, time to take a break!" : "Break time is over, lock back in!"))
+        })
     }
 }
 
