@@ -10,14 +10,14 @@ import UserNotifications
 import PhotosUI
 
 struct HomeView: View {
-    // variable TimerView to show timer
+    // Variable TimerView to show timer
     var timerView = TimerView()
     @EnvironmentObject var globalTimer: TimerModal
     @State private var showAlert: Bool = false
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
-    // variable ToDoListView to show list
+    // Variable ToDoListView to show list
     var toDoListView = ToDoListView()
-    // booleans to show certain view
+    // Booleans to show certain view
     @State var showingCalView = true
     @State var showingTimerView = false
     @State var showingToDoListView = false
@@ -25,14 +25,15 @@ struct HomeView: View {
     @StateObject var profileView = ProfileViewModal()
     
     var body: some View {
-        //want everything to be layered on top of each other
+        // Want everything to be layered on top of each other
         ZStack {
             Color(hex: "#B3B792")
                 .ignoresSafeArea() // avoids borders around edge
             
-            // simple Vstack for basic elements on home screen
+            // Simple Vstack for basic elements on home screen
             VStack {
                 HStack {
+                    // Today's date
                     VStack(alignment: .leading) {
                         Text("Today")
                             .font(.poppinsBlack)
@@ -44,7 +45,7 @@ struct HomeView: View {
                     .padding(.leading, 15)
                     
                     Spacer()
-                    
+                    // Profile picture
                     PhotosPicker(selection: $profileView.selectedItem) {
                         if let profileImage = profileView.profileImage {
                             profileImage
@@ -67,9 +68,10 @@ struct HomeView: View {
                 Spacer()
             }
             
+            // Display the Calendar view by default
             CalenderView()
             
-            //if boolean to show views
+            // Booleans which toggles each view
             if (showingTimerView) {
                 timerView
                     .opacity(showingTimerView ? 1 : 0)
@@ -105,7 +107,7 @@ struct HomeView: View {
                     .background(Color(hex: "#D9D9D9"))
                     .cornerRadius(100.0)
                     .tint(.gray)
-                    // Calendar/Home View
+                    // Calendar-Home View
                     Button (action: {
                         withAnimation(.spring) {
                             self.showingCalView = true

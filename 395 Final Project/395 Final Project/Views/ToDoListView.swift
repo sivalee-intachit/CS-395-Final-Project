@@ -41,6 +41,7 @@ struct ToDoListView: View {
                                     newTask = false
                                 })
                                 .listRowInsets(EdgeInsets(top: 0, leading: 50, bottom: 10, trailing: 50))
+                                .listRowSeparator(.hidden)
                                 .listRowBackground(Color.clear)
                             }
                             // Existing task items
