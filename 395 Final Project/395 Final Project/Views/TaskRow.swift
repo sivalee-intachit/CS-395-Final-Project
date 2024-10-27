@@ -51,7 +51,6 @@ struct TaskRow: View {
     }
 }
 
-
 #Preview {
     TaskRow(
         task: TaskModal(
