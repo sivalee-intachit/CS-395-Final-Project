@@ -33,11 +33,19 @@ struct TaskRow: View {
                 Text(task.title)
                     .foregroundColor(task.isComplete ? .secondary : Color(hex: "#6D5F60"))
                     .font(.poppinsMedium)
-                if let note = task.note, !note.isEmpty {
-                    Text(note)
+                HStack {
+                    Text("\(task.dueDate, format: .dateTime.day().month())")
+                        .foregroundColor(Date() > task.dueDate ? Color(hex: "E68580") : Color(hex: "#6D5F60"))
                         .font(.poppinsRegular)
-                        .foregroundColor(Color(hex: "#948A8B"))
+                        .padding(.trailing, 10)
+                        .frame(alignment: .trailing)
+                    if let note = task.note, !note.isEmpty {
+                        Text(note)
+                            .font(.poppinsRegular)
+                            .foregroundColor(Color(hex: "#948A8B"))
+                    }
                 }
+                
             }
         }
     }
