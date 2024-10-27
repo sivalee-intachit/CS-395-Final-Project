@@ -10,6 +10,7 @@
 		743F41372CCD946800592CDC /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743F41342CCD946800592CDC /* Poppins-Medium.ttf */; };
 		743F41382CCD946800592CDC /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743F41352CCD946800592CDC /* Poppins-Regular.ttf */; };
 		743F41392CCD946800592CDC /* Poppins-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 743F41332CCD946800592CDC /* Poppins-Black.ttf */; };
+		74610B782CCE01300084D795 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 74610B772CCE01300084D795 /* Poppins-SemiBold.ttf */; };
 		74E5638B2CC69ED700F90378 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E5638A2CC69ED500F90378 /* Task.swift */; };
 		74E5638D2CC69F0700F90378 /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74E5638C2CC69F0500F90378 /* TaskRow.swift */; };
 		74F37F122CCDCA3C00215385 /* TaskComposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F37F112CCDCA3900215385 /* TaskComposeView.swift */; };
@@ -27,6 +28,7 @@
 		743F41332CCD946800592CDC /* Poppins-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Black.ttf"; sourceTree = "<group>"; };
 		743F41342CCD946800592CDC /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		743F41352CCD946800592CDC /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		74610B772CCE01300084D795 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		7478F7792CC87D0B00407A91 /* -95-Final-Project-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-95-Final-Project-Info.plist"; sourceTree = SOURCE_ROOT; };
 		74E5638A2CC69ED500F90378 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		74E5638C2CC69F0500F90378 /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				743F41332CCD946800592CDC /* Poppins-Black.ttf */,
 				743F41342CCD946800592CDC /* Poppins-Medium.ttf */,
 				743F41352CCD946800592CDC /* Poppins-Regular.ttf */,
+				74610B772CCE01300084D795 /* Poppins-SemiBold.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA362A2D2C98C50F002A1EB5 /* Preview Assets.xcassets in Resources */,
+				74610B782CCE01300084D795 /* Poppins-SemiBold.ttf in Resources */,
 				743F41372CCD946800592CDC /* Poppins-Medium.ttf in Resources */,
 				743F41382CCD946800592CDC /* Poppins-Regular.ttf in Resources */,
 				743F41392CCD946800592CDC /* Poppins-Black.ttf in Resources */,
