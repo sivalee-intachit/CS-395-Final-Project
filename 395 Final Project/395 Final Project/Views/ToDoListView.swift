@@ -7,18 +7,20 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct ToDoListView: View {
     @Environment(\.dismiss) var dismiss
     
     @State private var taskToEdit : Task?
     @State private var tasks : [Task] = []
-    
+   
     @State private var newTask: Bool = false
     @State private var newTaskTitle : String = ""
     @State private var newTaskNote : String = ""
     @State private var newTaskDueDate : Date = Date()
+  
+    @EnvironmentObject var globalTimer: TimerModal
+    @State private var showAlert: Bool = false
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack {
@@ -106,6 +108,19 @@ struct ToDoListView: View {
             .cornerRadius(50)
         }
         .offset(y: 80)
+        .onReceive(timer) { (_) in
+        
+            if globalTimer.isRunning {
+                
+                if globalTimer.timeRemaining <= 0 {
+                    globalTimer.stopTimer()
+                    showAlert.toggle()
+                }
+            }
+        }
+        .alert(isPresented: $showAlert, content: {
+            Alert(title: Text("Pomodoro Timer Finished") , message: Text(globalTimer.isFocused ? "Done focusing, time to take a break!" : "Break time is over, lock back in!"))
+        })
     }
 
 
